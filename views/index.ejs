@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/public/assets/style.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+</head>
+<body>
+    <div class="main" id="main">
+        <h1>Express+ MongoDB To-Do List</h1>
+        <% taskCount.map((task) => { %>
+        <div class="block">
+            <div class="task">
+                <%= task.task %>
+            </div>
+            <div class="buttons">
+                <form action="http://localhost:8080/delete/<%=task._id%>" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+                <form action="http://localhost:8080/edit/<%=task._id%>" method="get">
+                    <button type="submit">Edit</button>
+                </form>
+            </div>
+        </div>
+        <% }); %>
+        
+        <button id="add" class="add" onclick = "window.location.href='http://localhost:8080/post'">
+            +
+        </button>
+
+    </div>
+
+    
+</body>
+</html>
